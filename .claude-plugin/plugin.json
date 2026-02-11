@@ -1,0 +1,44 @@
+{
+  "name": "artisteye",
+  "version": "2.0.0",
+  "description": "Game dev art plugin for Claude Code — spatial awareness, coordinate systems, color palettes, easing curves, and framework-aware assistance for game development",
+  "author": {
+    "name": "Overtimepog",
+    "url": "https://github.com/Overtimepog"
+  },
+  "repository": "https://github.com/Overtimepog/artisteye",
+  "license": "MIT",
+  "keywords": [
+    "game-dev",
+    "pixel-art",
+    "coordinate-systems",
+    "color-palette",
+    "easing",
+    "shaders",
+    "animation",
+    "game-ui",
+    "spatial-awareness",
+    "love2d",
+    "godot",
+    "unity",
+    "pygame",
+    "phaser",
+    "roblox",
+    "unreal"
+  ],
+  "agents": "./agents/",
+  "skills": [
+    "./skills/spatial-check",
+    "./skills/game-palette",
+    "./skills/ui-layout",
+    "./skills/asset-spec",
+    "./skills/shader-review",
+    "./skills/animation-guide",
+    "./skills/stack-docs",
+    "./skills/art-critique",
+    "./skills/pixel-art",
+    "./skills/procedural-gen"
+  ],
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

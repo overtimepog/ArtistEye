@@ -1,0 +1,35 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "artisteye",
+  "description": "Game dev art plugin for Claude Code — spatial awareness, coordinate systems, color palettes, easing curves, and framework-aware assistance",
+  "owner": {
+    "name": "Overtimepog"
+  },
+  "plugins": [
+    {
+      "name": "artisteye",
+      "description": "Game dev art plugin — spatial awareness, coordinate systems, color palettes, easing curves, typography, shaders, and framework-aware assistance for 15+ game engines",
+      "version": "2.0.0",
+      "author": {
+        "name": "Overtimepog"
+      },
+      "source": "./",
+      "category": "creative",
+      "homepage": "https://github.com/Overtimepog/artisteye",
+      "tags": [
+        "game-dev",
+        "pixel-art",
+        "coordinate-systems",
+        "color-palette",
+        "easing",
+        "shaders",
+        "animation",
+        "game-ui",
+        "spatial-awareness",
+        "typography",
+        "3d-art",
+        "asset-pipeline"
+      ]
+    }
+  ]
+}

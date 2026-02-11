@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__artisteye__color_palette_game",
+      "mcp__artisteye__contrast_check",
+      "mcp__artisteye__grid_calculator",
+      "mcp__artisteye__easing_calculator",
+      "mcp__artisteye__spacing_scale",
+      "mcp__artisteye__coordinate_reference"
+    ]
+  }
+}
