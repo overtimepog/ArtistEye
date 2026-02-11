@@ -1,4 +1,4 @@
-# ArtistEye v2.0
+# ArtistEye v1.0
 
 A Claude Code plugin that makes Claude spatially aware for game development. Prevents coordinate system confusion, incorrect proportions, stiff animations, poor color accessibility, and shader UV errors across 15 game engines.
 
