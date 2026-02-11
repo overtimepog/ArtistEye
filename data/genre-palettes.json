@@ -1,0 +1,324 @@
+{
+  "horror": {
+    "name": "Horror",
+    "moods": ["dread", "tension", "unease", "isolation"],
+    "palettes": [
+      {
+        "name": "Classic Horror",
+        "primary": "#8B0000",
+        "secondary": "#2D1B2E",
+        "accent": "#FF4444",
+        "background": "#0A0A0A",
+        "surface": "#1A1A2E",
+        "text": "#C8C8C8",
+        "muted": "#4A4A4A"
+      },
+      {
+        "name": "Psychological",
+        "primary": "#4A3B5C",
+        "secondary": "#2C3E50",
+        "accent": "#E74C3C",
+        "background": "#0D0D0D",
+        "surface": "#1C1C2E",
+        "text": "#B8B8B8",
+        "muted": "#3D3D3D"
+      }
+    ]
+  },
+  "action": {
+    "name": "Action",
+    "moods": ["excitement", "intensity", "power", "adrenaline"],
+    "palettes": [
+      {
+        "name": "Explosive",
+        "primary": "#FF6B00",
+        "secondary": "#1A1A2E",
+        "accent": "#FFD700",
+        "background": "#0F0F1A",
+        "surface": "#1E1E30",
+        "text": "#FFFFFF",
+        "muted": "#666680"
+      },
+      {
+        "name": "Military",
+        "primary": "#556B2F",
+        "secondary": "#2F4F4F",
+        "accent": "#FF4500",
+        "background": "#1A1A1A",
+        "surface": "#2D2D2D",
+        "text": "#E0E0E0",
+        "muted": "#808080"
+      }
+    ]
+  },
+  "rpg": {
+    "name": "RPG",
+    "moods": ["adventure", "mystery", "wonder", "epic"],
+    "palettes": [
+      {
+        "name": "High Fantasy",
+        "primary": "#7B2D8E",
+        "secondary": "#1B4B72",
+        "accent": "#FFD700",
+        "background": "#0E0E1A",
+        "surface": "#1A1A30",
+        "text": "#E8E8F0",
+        "muted": "#5A5A7A"
+      },
+      {
+        "name": "Dark Fantasy",
+        "primary": "#5C3D2E",
+        "secondary": "#2E4045",
+        "accent": "#C9A84C",
+        "background": "#0A0A0F",
+        "surface": "#1A1820",
+        "text": "#D4C8B0",
+        "muted": "#5A5248"
+      }
+    ]
+  },
+  "puzzle": {
+    "name": "Puzzle",
+    "moods": ["focus", "clarity", "satisfaction", "zen"],
+    "palettes": [
+      {
+        "name": "Clean Minimal",
+        "primary": "#4A90D9",
+        "secondary": "#50C878",
+        "accent": "#FF6B9D",
+        "background": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "text": "#2C3E50",
+        "muted": "#BDC3C7"
+      },
+      {
+        "name": "Neon Logic",
+        "primary": "#00D4FF",
+        "secondary": "#FF00FF",
+        "accent": "#00FF88",
+        "background": "#0A0A1A",
+        "surface": "#14142A",
+        "text": "#E0E0FF",
+        "muted": "#4A4A6A"
+      }
+    ]
+  },
+  "platformer": {
+    "name": "Platformer",
+    "moods": ["fun", "energetic", "cheerful", "adventurous"],
+    "palettes": [
+      {
+        "name": "Bright Adventure",
+        "primary": "#4FC3F7",
+        "secondary": "#81C784",
+        "accent": "#FFB74D",
+        "background": "#87CEEB",
+        "surface": "#E3F2FD",
+        "text": "#1A237E",
+        "muted": "#90A4AE"
+      },
+      {
+        "name": "Retro Platform",
+        "primary": "#E53935",
+        "secondary": "#43A047",
+        "accent": "#FFD600",
+        "background": "#5C9CE6",
+        "surface": "#7BB3F0",
+        "text": "#FFFFFF",
+        "muted": "#78909C"
+      }
+    ]
+  },
+  "sci-fi": {
+    "name": "Sci-Fi",
+    "moods": ["futuristic", "technological", "vast", "alien"],
+    "palettes": [
+      {
+        "name": "Cyberpunk",
+        "primary": "#00FFFF",
+        "secondary": "#FF00FF",
+        "accent": "#FFD700",
+        "background": "#0A0A14",
+        "surface": "#141428",
+        "text": "#E0E0FF",
+        "muted": "#4A4A6A"
+      },
+      {
+        "name": "Deep Space",
+        "primary": "#1E90FF",
+        "secondary": "#9370DB",
+        "accent": "#00CED1",
+        "background": "#050510",
+        "surface": "#0E0E25",
+        "text": "#C8D0E0",
+        "muted": "#3A3A5A"
+      }
+    ]
+  },
+  "retro": {
+    "name": "Retro",
+    "moods": ["nostalgic", "warm", "pixelated", "classic"],
+    "palettes": [
+      {
+        "name": "NES Era",
+        "primary": "#E4533A",
+        "secondary": "#7EB242",
+        "accent": "#F7D358",
+        "background": "#3F3F74",
+        "surface": "#4F4F8A",
+        "text": "#FCF8E8",
+        "muted": "#6B6BA0"
+      },
+      {
+        "name": "Game Boy",
+        "primary": "#306230",
+        "secondary": "#8BAC0F",
+        "accent": "#9BBC0F",
+        "background": "#0F380F",
+        "surface": "#306230",
+        "text": "#9BBC0F",
+        "muted": "#8BAC0F"
+      },
+      {
+        "name": "Synthwave",
+        "primary": "#FF6EC7",
+        "secondary": "#7B2FBE",
+        "accent": "#00FFFF",
+        "background": "#1A0A2E",
+        "surface": "#2D1B4E",
+        "text": "#F0E0FF",
+        "muted": "#6A5A8A"
+      }
+    ]
+  },
+  "casual": {
+    "name": "Casual",
+    "moods": ["relaxing", "friendly", "approachable", "light"],
+    "palettes": [
+      {
+        "name": "Candy Pop",
+        "primary": "#FF69B4",
+        "secondary": "#87CEEB",
+        "accent": "#FFD700",
+        "background": "#FFF5F5",
+        "surface": "#FFFFFF",
+        "text": "#4A4A4A",
+        "muted": "#C8C8D0"
+      },
+      {
+        "name": "Garden",
+        "primary": "#66BB6A",
+        "secondary": "#A1887F",
+        "accent": "#FFB300",
+        "background": "#F5F5F0",
+        "surface": "#FFFFFF",
+        "text": "#3E2723",
+        "muted": "#BCAAA4"
+      }
+    ]
+  },
+  "simulation": {
+    "name": "Simulation",
+    "moods": ["organized", "productive", "clean", "systematic"],
+    "palettes": [
+      {
+        "name": "City Builder",
+        "primary": "#2196F3",
+        "secondary": "#4CAF50",
+        "accent": "#FF9800",
+        "background": "#ECEFF1",
+        "surface": "#FFFFFF",
+        "text": "#37474F",
+        "muted": "#90A4AE"
+      },
+      {
+        "name": "Management",
+        "primary": "#3F51B5",
+        "secondary": "#009688",
+        "accent": "#FFC107",
+        "background": "#F5F5F5",
+        "surface": "#FFFFFF",
+        "text": "#212121",
+        "muted": "#9E9E9E"
+      }
+    ]
+  },
+  "racing": {
+    "name": "Racing",
+    "moods": ["speed", "competition", "thrill", "precision"],
+    "palettes": [
+      {
+        "name": "Street Racing",
+        "primary": "#FF1744",
+        "secondary": "#212121",
+        "accent": "#76FF03",
+        "background": "#0D0D0D",
+        "surface": "#1A1A1A",
+        "text": "#FFFFFF",
+        "muted": "#616161"
+      },
+      {
+        "name": "Formula",
+        "primary": "#D50000",
+        "secondary": "#1565C0",
+        "accent": "#FFD600",
+        "background": "#F5F5F5",
+        "surface": "#FFFFFF",
+        "text": "#1A1A1A",
+        "muted": "#9E9E9E"
+      }
+    ]
+  },
+  "stealth": {
+    "name": "Stealth",
+    "moods": ["tension", "secrecy", "tactical", "shadow"],
+    "palettes": [
+      {
+        "name": "Shadow Ops",
+        "primary": "#1B5E20",
+        "secondary": "#263238",
+        "accent": "#76FF03",
+        "background": "#0A0A0A",
+        "surface": "#1A1A1A",
+        "text": "#B0BEC5",
+        "muted": "#37474F"
+      },
+      {
+        "name": "Night Mission",
+        "primary": "#1A237E",
+        "secondary": "#0D47A1",
+        "accent": "#FFD600",
+        "background": "#050510",
+        "surface": "#0E1028",
+        "text": "#90CAF9",
+        "muted": "#283593"
+      }
+    ]
+  },
+  "roguelike": {
+    "name": "Roguelike",
+    "moods": ["danger", "exploration", "permadeath", "discovery"],
+    "palettes": [
+      {
+        "name": "Dungeon Crawler",
+        "primary": "#8D6E63",
+        "secondary": "#5D4037",
+        "accent": "#FFB300",
+        "background": "#1A1210",
+        "surface": "#2D2420",
+        "text": "#D7CCC8",
+        "muted": "#6D4C41"
+      },
+      {
+        "name": "Cosmic Horror",
+        "primary": "#7E57C2",
+        "secondary": "#311B92",
+        "accent": "#00E5FF",
+        "background": "#0A0510",
+        "surface": "#150E25",
+        "text": "#B39DDB",
+        "muted": "#4527A0"
+      }
+    ]
+  }
+}

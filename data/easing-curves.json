@@ -1,0 +1,591 @@
+{
+  "linear": {
+    "name": "Linear",
+    "category": "linear",
+    "formula": "t",
+    "description": "Constant speed from start to finish with no acceleration or deceleration",
+    "css_equivalent": "linear",
+    "use_cases": [
+      "Rotating objects at constant speed",
+      "Scrolling backgrounds",
+      "Simple fades where natural motion isn't important"
+    ],
+    "code": {
+      "javascript": "function linear(t) { return t; }",
+      "lua": "function linear(t) return t end",
+      "gdscript": "func linear(t: float) -> float:\n\treturn t",
+      "csharp": "public static float Linear(float t) => t;",
+      "python": "def linear(t: float) -> float:\n    return t"
+    }
+  },
+  "easeInQuad": {
+    "name": "Ease In Quadratic",
+    "category": "quad",
+    "formula": "t*t",
+    "description": "Starts slow and accelerates gradually with quadratic curve",
+    "css_equivalent": "cubic-bezier(0.11, 0, 0.5, 0)",
+    "use_cases": [
+      "Object beginning to fall under gravity",
+      "Camera starting to zoom in",
+      "UI elements starting to slide in"
+    ],
+    "code": {
+      "javascript": "function easeInQuad(t) { return t * t; }",
+      "lua": "function easeInQuad(t) return t * t end",
+      "gdscript": "func ease_in_quad(t: float) -> float:\n\treturn t * t",
+      "csharp": "public static float EaseInQuad(float t) => t * t;",
+      "python": "def ease_in_quad(t: float) -> float:\n    return t * t"
+    }
+  },
+  "easeOutQuad": {
+    "name": "Ease Out Quadratic",
+    "category": "quad",
+    "formula": "t*(2-t)",
+    "description": "Starts fast and decelerates gradually to a gentle stop",
+    "css_equivalent": "cubic-bezier(0.5, 1, 0.89, 1)",
+    "use_cases": [
+      "Object landing gently",
+      "Camera finishing a zoom",
+      "UI elements settling into place"
+    ],
+    "code": {
+      "javascript": "function easeOutQuad(t) { return t * (2 - t); }",
+      "lua": "function easeOutQuad(t) return t * (2 - t) end",
+      "gdscript": "func ease_out_quad(t: float) -> float:\n\treturn t * (2.0 - t)",
+      "csharp": "public static float EaseOutQuad(float t) => t * (2f - t);",
+      "python": "def ease_out_quad(t: float) -> float:\n    return t * (2 - t)"
+    }
+  },
+  "easeInOutQuad": {
+    "name": "Ease In-Out Quadratic",
+    "category": "quad",
+    "formula": "t<0.5 ? 2*t*t : -1+(4-2*t)*t",
+    "description": "Accelerates gently at start, decelerates gently at end with smooth transition",
+    "css_equivalent": "cubic-bezier(0.45, 0, 0.55, 1)",
+    "use_cases": [
+      "Smooth camera transitions between points",
+      "Character movement with natural acceleration",
+      "UI panel sliding in and settling"
+    ],
+    "code": {
+      "javascript": "function easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }",
+      "lua": "function easeInOutQuad(t)\n  if t < 0.5 then\n    return 2 * t * t\n  else\n    return -1 + (4 - 2 * t) * t\n  end\nend",
+      "gdscript": "func ease_in_out_quad(t: float) -> float:\n\tif t < 0.5:\n\t\treturn 2.0 * t * t\n\telse:\n\t\treturn -1.0 + (4.0 - 2.0 * t) * t",
+      "csharp": "public static float EaseInOutQuad(float t) => t < 0.5f ? 2f * t * t : -1f + (4f - 2f * t) * t;",
+      "python": "def ease_in_out_quad(t: float) -> float:\n    return 2 * t * t if t < 0.5 else -1 + (4 - 2 * t) * t"
+    }
+  },
+  "easeInCubic": {
+    "name": "Ease In Cubic",
+    "category": "cubic",
+    "formula": "t*t*t",
+    "description": "Starts very slow and accelerates more aggressively than quadratic",
+    "css_equivalent": "cubic-bezier(0.32, 0, 0.67, 0)",
+    "use_cases": [
+      "Heavy objects starting to move",
+      "Dramatic camera swoops beginning",
+      "Boss enemy beginning attack charge"
+    ],
+    "code": {
+      "javascript": "function easeInCubic(t) { return t * t * t; }",
+      "lua": "function easeInCubic(t) return t * t * t end",
+      "gdscript": "func ease_in_cubic(t: float) -> float:\n\treturn t * t * t",
+      "csharp": "public static float EaseInCubic(float t) => t * t * t;",
+      "python": "def ease_in_cubic(t: float) -> float:\n    return t * t * t"
+    }
+  },
+  "easeOutCubic": {
+    "name": "Ease Out Cubic",
+    "category": "cubic",
+    "formula": "(--t)*t*t+1",
+    "description": "Starts fast and decelerates aggressively to a sudden stop",
+    "css_equivalent": "cubic-bezier(0.33, 1, 0.68, 1)",
+    "use_cases": [
+      "Object slamming into ground",
+      "Camera finishing dramatic swoop",
+      "Character finishing dash or sprint"
+    ],
+    "code": {
+      "javascript": "function easeOutCubic(t) { return (--t) * t * t + 1; }",
+      "lua": "function easeOutCubic(t)\n  t = t - 1\n  return t * t * t + 1\nend",
+      "gdscript": "func ease_out_cubic(t: float) -> float:\n\tt = t - 1.0\n\treturn t * t * t + 1.0",
+      "csharp": "public static float EaseOutCubic(float t) { t -= 1f; return t * t * t + 1f; }",
+      "python": "def ease_out_cubic(t: float) -> float:\n    t -= 1\n    return t * t * t + 1"
+    }
+  },
+  "easeInOutCubic": {
+    "name": "Ease In-Out Cubic",
+    "category": "cubic",
+    "formula": "t<0.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1",
+    "description": "Smooth cubic acceleration and deceleration with pronounced ease",
+    "css_equivalent": "cubic-bezier(0.65, 0, 0.35, 1)",
+    "use_cases": [
+      "Cinematic camera movements",
+      "Character teleporting or warping",
+      "Smooth menu transitions"
+    ],
+    "code": {
+      "javascript": "function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1; }",
+      "lua": "function easeInOutCubic(t)\n  if t < 0.5 then\n    return 4 * t * t * t\n  else\n    return (t - 1) * (2 * t - 2) * (2 * t - 2) + 1\n  end\nend",
+      "gdscript": "func ease_in_out_cubic(t: float) -> float:\n\tif t < 0.5:\n\t\treturn 4.0 * t * t * t\n\telse:\n\t\treturn (t - 1.0) * (2.0 * t - 2.0) * (2.0 * t - 2.0) + 1.0",
+      "csharp": "public static float EaseInOutCubic(float t) => t < 0.5f ? 4f * t * t * t : (t - 1f) * (2f * t - 2f) * (2f * t - 2f) + 1f;",
+      "python": "def ease_in_out_cubic(t: float) -> float:\n    return 4 * t * t * t if t < 0.5 else (t - 1) * (2 * t - 2) * (2 * t - 2) + 1"
+    }
+  },
+  "easeInQuart": {
+    "name": "Ease In Quartic",
+    "category": "quart",
+    "formula": "t*t*t*t",
+    "description": "Starts extremely slow with very aggressive acceleration curve",
+    "css_equivalent": "cubic-bezier(0.5, 0, 0.75, 0)",
+    "use_cases": [
+      "Powerful spell charge-up",
+      "Rocket launch sequence",
+      "Time slowing down effect start"
+    ],
+    "code": {
+      "javascript": "function easeInQuart(t) { return t * t * t * t; }",
+      "lua": "function easeInQuart(t) return t * t * t * t end",
+      "gdscript": "func ease_in_quart(t: float) -> float:\n\treturn t * t * t * t",
+      "csharp": "public static float EaseInQuart(float t) => t * t * t * t;",
+      "python": "def ease_in_quart(t: float) -> float:\n    return t * t * t * t"
+    }
+  },
+  "easeOutQuart": {
+    "name": "Ease Out Quartic",
+    "category": "quart",
+    "formula": "1-(--t)*t*t*t",
+    "description": "Starts extremely fast and decelerates very aggressively",
+    "css_equivalent": "cubic-bezier(0.25, 1, 0.5, 1)",
+    "use_cases": [
+      "Explosion shockwave dissipating",
+      "Bullet time ending",
+      "Screen shake settling"
+    ],
+    "code": {
+      "javascript": "function easeOutQuart(t) { return 1 - (--t) * t * t * t; }",
+      "lua": "function easeOutQuart(t)\n  t = t - 1\n  return 1 - t * t * t * t\nend",
+      "gdscript": "func ease_out_quart(t: float) -> float:\n\tt = t - 1.0\n\treturn 1.0 - t * t * t * t",
+      "csharp": "public static float EaseOutQuart(float t) { t -= 1f; return 1f - t * t * t * t; }",
+      "python": "def ease_out_quart(t: float) -> float:\n    t -= 1\n    return 1 - t * t * t * t"
+    }
+  },
+  "easeInOutQuart": {
+    "name": "Ease In-Out Quartic",
+    "category": "quart",
+    "formula": "t<0.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t",
+    "description": "Very smooth quartic acceleration and deceleration for dramatic effects",
+    "css_equivalent": "cubic-bezier(0.76, 0, 0.24, 1)",
+    "use_cases": [
+      "Dramatic scene transitions",
+      "Power-up transformation animations",
+      "Boss phase transition effects"
+    ],
+    "code": {
+      "javascript": "function easeInOutQuart(t) { return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t; }",
+      "lua": "function easeInOutQuart(t)\n  if t < 0.5 then\n    return 8 * t * t * t * t\n  else\n    t = t - 1\n    return 1 - 8 * t * t * t * t\n  end\nend",
+      "gdscript": "func ease_in_out_quart(t: float) -> float:\n\tif t < 0.5:\n\t\treturn 8.0 * t * t * t * t\n\telse:\n\t\tt = t - 1.0\n\t\treturn 1.0 - 8.0 * t * t * t * t",
+      "csharp": "public static float EaseInOutQuart(float t) { if (t < 0.5f) return 8f * t * t * t * t; t -= 1f; return 1f - 8f * t * t * t * t; }",
+      "python": "def ease_in_out_quart(t: float) -> float:\n    if t < 0.5:\n        return 8 * t * t * t * t\n    t -= 1\n    return 1 - 8 * t * t * t * t"
+    }
+  },
+  "easeInQuint": {
+    "name": "Ease In Quintic",
+    "category": "quint",
+    "formula": "t*t*t*t*t",
+    "description": "Extremely slow start with the most aggressive polynomial acceleration",
+    "css_equivalent": "cubic-bezier(0.64, 0, 0.78, 0)",
+    "use_cases": [
+      "Ultimate ability charge animation",
+      "Slow-motion effect beginning",
+      "Epic cutscene camera push"
+    ],
+    "code": {
+      "javascript": "function easeInQuint(t) { return t * t * t * t * t; }",
+      "lua": "function easeInQuint(t) return t * t * t * t * t end",
+      "gdscript": "func ease_in_quint(t: float) -> float:\n\treturn t * t * t * t * t",
+      "csharp": "public static float EaseInQuint(float t) => t * t * t * t * t;",
+      "python": "def ease_in_quint(t: float) -> float:\n    return t * t * t * t * t"
+    }
+  },
+  "easeOutQuint": {
+    "name": "Ease Out Quintic",
+    "category": "quint",
+    "formula": "1+(--t)*t*t*t*t",
+    "description": "Extremely fast start with the most aggressive polynomial deceleration",
+    "css_equivalent": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "use_cases": [
+      "Ultimate ability release impact",
+      "Screen transition whoosh ending",
+      "Portal closing effect"
+    ],
+    "code": {
+      "javascript": "function easeOutQuint(t) { return 1 + (--t) * t * t * t * t; }",
+      "lua": "function easeOutQuint(t)\n  t = t - 1\n  return 1 + t * t * t * t * t\nend",
+      "gdscript": "func ease_out_quint(t: float) -> float:\n\tt = t - 1.0\n\treturn 1.0 + t * t * t * t * t",
+      "csharp": "public static float EaseOutQuint(float t) { t -= 1f; return 1f + t * t * t * t * t; }",
+      "python": "def ease_out_quint(t: float) -> float:\n    t -= 1\n    return 1 + t * t * t * t * t"
+    }
+  },
+  "easeInOutQuint": {
+    "name": "Ease In-Out Quintic",
+    "category": "quint",
+    "formula": "t<0.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t",
+    "description": "Maximum smoothness with quintic acceleration and deceleration",
+    "css_equivalent": "cubic-bezier(0.83, 0, 0.17, 1)",
+    "use_cases": [
+      "Epic cinematic transitions",
+      "Character ultimate transformation",
+      "Time dilation effects"
+    ],
+    "code": {
+      "javascript": "function easeInOutQuint(t) { return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t; }",
+      "lua": "function easeInOutQuint(t)\n  if t < 0.5 then\n    return 16 * t * t * t * t * t\n  else\n    t = t - 1\n    return 1 + 16 * t * t * t * t * t\n  end\nend",
+      "gdscript": "func ease_in_out_quint(t: float) -> float:\n\tif t < 0.5:\n\t\treturn 16.0 * t * t * t * t * t\n\telse:\n\t\tt = t - 1.0\n\t\treturn 1.0 + 16.0 * t * t * t * t * t",
+      "csharp": "public static float EaseInOutQuint(float t) { if (t < 0.5f) return 16f * t * t * t * t * t; t -= 1f; return 1f + 16f * t * t * t * t * t; }",
+      "python": "def ease_in_out_quint(t: float) -> float:\n    if t < 0.5:\n        return 16 * t * t * t * t * t\n    t -= 1\n    return 1 + 16 * t * t * t * t * t"
+    }
+  },
+  "easeInSine": {
+    "name": "Ease In Sine",
+    "category": "sine",
+    "formula": "1-cos(t*PI/2)",
+    "description": "Smooth sinusoidal acceleration with natural curved motion",
+    "css_equivalent": "cubic-bezier(0.12, 0, 0.39, 0)",
+    "use_cases": [
+      "Pendulum swing starting",
+      "Natural wave motion beginning",
+      "Smooth fade-in effects"
+    ],
+    "code": {
+      "javascript": "function easeInSine(t) { return 1 - Math.cos(t * Math.PI / 2); }",
+      "lua": "function easeInSine(t) return 1 - math.cos(t * math.pi / 2) end",
+      "gdscript": "func ease_in_sine(t: float) -> float:\n\treturn 1.0 - cos(t * PI / 2.0)",
+      "csharp": "public static float EaseInSine(float t) => 1f - Mathf.Cos(t * Mathf.PI / 2f);",
+      "python": "def ease_in_sine(t: float) -> float:\n    import math\n    return 1 - math.cos(t * math.pi / 2)"
+    }
+  },
+  "easeOutSine": {
+    "name": "Ease Out Sine",
+    "category": "sine",
+    "formula": "sin(t*PI/2)",
+    "description": "Smooth sinusoidal deceleration with natural curved motion",
+    "css_equivalent": "cubic-bezier(0.61, 1, 0.88, 1)",
+    "use_cases": [
+      "Pendulum swing ending",
+      "Natural wave motion ending",
+      "Smooth fade-out effects"
+    ],
+    "code": {
+      "javascript": "function easeOutSine(t) { return Math.sin(t * Math.PI / 2); }",
+      "lua": "function easeOutSine(t) return math.sin(t * math.pi / 2) end",
+      "gdscript": "func ease_out_sine(t: float) -> float:\n\treturn sin(t * PI / 2.0)",
+      "csharp": "public static float EaseOutSine(float t) => Mathf.Sin(t * Mathf.PI / 2f);",
+      "python": "def ease_out_sine(t: float) -> float:\n    import math\n    return math.sin(t * math.pi / 2)"
+    }
+  },
+  "easeInOutSine": {
+    "name": "Ease In-Out Sine",
+    "category": "sine",
+    "formula": "-(cos(PI*t)-1)/2",
+    "description": "Perfectly smooth sinusoidal motion for most natural feeling animations",
+    "css_equivalent": "cubic-bezier(0.37, 0, 0.63, 1)",
+    "use_cases": [
+      "Natural object movement",
+      "Breathing animations",
+      "Smooth camera panning"
+    ],
+    "code": {
+      "javascript": "function easeInOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }",
+      "lua": "function easeInOutSine(t) return -(math.cos(math.pi * t) - 1) / 2 end",
+      "gdscript": "func ease_in_out_sine(t: float) -> float:\n\treturn -(cos(PI * t) - 1.0) / 2.0",
+      "csharp": "public static float EaseInOutSine(float t) => -(Mathf.Cos(Mathf.PI * t) - 1f) / 2f;",
+      "python": "def ease_in_out_sine(t: float) -> float:\n    import math\n    return -(math.cos(math.pi * t) - 1) / 2"
+    }
+  },
+  "easeInExpo": {
+    "name": "Ease In Exponential",
+    "category": "expo",
+    "formula": "t==0 ? 0 : pow(2, 10*(t-1))",
+    "description": "Extremely slow start with explosive exponential acceleration at the end",
+    "css_equivalent": "cubic-bezier(0.7, 0, 0.84, 0)",
+    "use_cases": [
+      "Bomb fuse burning faster",
+      "Energy building to explosion",
+      "Countdown timer speeding up"
+    ],
+    "code": {
+      "javascript": "function easeInExpo(t) { return t === 0 ? 0 : Math.pow(2, 10 * (t - 1)); }",
+      "lua": "function easeInExpo(t)\n  if t == 0 then return 0 end\n  return math.pow(2, 10 * (t - 1))\nend",
+      "gdscript": "func ease_in_expo(t: float) -> float:\n\tif t == 0.0:\n\t\treturn 0.0\n\treturn pow(2.0, 10.0 * (t - 1.0))",
+      "csharp": "public static float EaseInExpo(float t) => t == 0f ? 0f : Mathf.Pow(2f, 10f * (t - 1f));",
+      "python": "def ease_in_expo(t: float) -> float:\n    return 0 if t == 0 else pow(2, 10 * (t - 1))"
+    }
+  },
+  "easeOutExpo": {
+    "name": "Ease Out Exponential",
+    "category": "expo",
+    "formula": "t==1 ? 1 : 1-pow(2, -10*t)",
+    "description": "Explosive start with exponential deceleration settling quickly",
+    "css_equivalent": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "use_cases": [
+      "Explosion impact dissipating",
+      "Flash of light fading",
+      "Sudden stop with quick settle"
+    ],
+    "code": {
+      "javascript": "function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }",
+      "lua": "function easeOutExpo(t)\n  if t == 1 then return 1 end\n  return 1 - math.pow(2, -10 * t)\nend",
+      "gdscript": "func ease_out_expo(t: float) -> float:\n\tif t == 1.0:\n\t\treturn 1.0\n\treturn 1.0 - pow(2.0, -10.0 * t)",
+      "csharp": "public static float EaseOutExpo(float t) => t == 1f ? 1f : 1f - Mathf.Pow(2f, -10f * t);",
+      "python": "def ease_out_expo(t: float) -> float:\n    return 1 if t == 1 else 1 - pow(2, -10 * t)"
+    }
+  },
+  "easeInOutExpo": {
+    "name": "Ease In-Out Exponential",
+    "category": "expo",
+    "formula": "t==0 ? 0 : t==1 ? 1 : t<0.5 ? pow(2,20*t-10)/2 : (2-pow(2,-20*t+10))/2",
+    "description": "Explosive acceleration and deceleration with exponential curves",
+    "css_equivalent": "cubic-bezier(0.87, 0, 0.13, 1)",
+    "use_cases": [
+      "Screen warp transitions",
+      "Teleportation effects",
+      "Reality shift animations"
+    ],
+    "code": {
+      "javascript": "function easeInOutExpo(t) {\n  if (t === 0) return 0;\n  if (t === 1) return 1;\n  if (t < 0.5) return Math.pow(2, 20 * t - 10) / 2;\n  return (2 - Math.pow(2, -20 * t + 10)) / 2;\n}",
+      "lua": "function easeInOutExpo(t)\n  if t == 0 then return 0 end\n  if t == 1 then return 1 end\n  if t < 0.5 then\n    return math.pow(2, 20 * t - 10) / 2\n  else\n    return (2 - math.pow(2, -20 * t + 10)) / 2\n  end\nend",
+      "gdscript": "func ease_in_out_expo(t: float) -> float:\n\tif t == 0.0:\n\t\treturn 0.0\n\tif t == 1.0:\n\t\treturn 1.0\n\tif t < 0.5:\n\t\treturn pow(2.0, 20.0 * t - 10.0) / 2.0\n\telse:\n\t\treturn (2.0 - pow(2.0, -20.0 * t + 10.0)) / 2.0",
+      "csharp": "public static float EaseInOutExpo(float t) {\n  if (t == 0f) return 0f;\n  if (t == 1f) return 1f;\n  if (t < 0.5f) return Mathf.Pow(2f, 20f * t - 10f) / 2f;\n  return (2f - Mathf.Pow(2f, -20f * t + 10f)) / 2f;\n}",
+      "python": "def ease_in_out_expo(t: float) -> float:\n    if t == 0:\n        return 0\n    if t == 1:\n        return 1\n    if t < 0.5:\n        return pow(2, 20 * t - 10) / 2\n    return (2 - pow(2, -20 * t + 10)) / 2"
+    }
+  },
+  "easeInCirc": {
+    "name": "Ease In Circular",
+    "category": "circ",
+    "formula": "1-sqrt(1-t*t)",
+    "description": "Slow start following a circular arc with smooth acceleration",
+    "css_equivalent": "cubic-bezier(0.55, 0, 1, 0.45)",
+    "use_cases": [
+      "Object rolling down a circular path",
+      "Camera orbiting starting motion",
+      "Radial menu expansion beginning"
+    ],
+    "code": {
+      "javascript": "function easeInCirc(t) { return 1 - Math.sqrt(1 - t * t); }",
+      "lua": "function easeInCirc(t) return 1 - math.sqrt(1 - t * t) end",
+      "gdscript": "func ease_in_circ(t: float) -> float:\n\treturn 1.0 - sqrt(1.0 - t * t)",
+      "csharp": "public static float EaseInCirc(float t) => 1f - Mathf.Sqrt(1f - t * t);",
+      "python": "def ease_in_circ(t: float) -> float:\n    import math\n    return 1 - math.sqrt(1 - t * t)"
+    }
+  },
+  "easeOutCirc": {
+    "name": "Ease Out Circular",
+    "category": "circ",
+    "formula": "sqrt(1-(t-1)*(t-1))",
+    "description": "Fast start following a circular arc with smooth deceleration",
+    "css_equivalent": "cubic-bezier(0, 0.55, 0.45, 1)",
+    "use_cases": [
+      "Object rolling up a circular path",
+      "Camera orbiting ending motion",
+      "Radial menu collapse finishing"
+    ],
+    "code": {
+      "javascript": "function easeOutCirc(t) { return Math.sqrt(1 - (t - 1) * (t - 1)); }",
+      "lua": "function easeOutCirc(t) return math.sqrt(1 - (t - 1) * (t - 1)) end",
+      "gdscript": "func ease_out_circ(t: float) -> float:\n\treturn sqrt(1.0 - (t - 1.0) * (t - 1.0))",
+      "csharp": "public static float EaseOutCirc(float t) => Mathf.Sqrt(1f - (t - 1f) * (t - 1f));",
+      "python": "def ease_out_circ(t: float) -> float:\n    import math\n    return math.sqrt(1 - (t - 1) * (t - 1))"
+    }
+  },
+  "easeInOutCirc": {
+    "name": "Ease In-Out Circular",
+    "category": "circ",
+    "formula": "t<0.5 ? (1-sqrt(1-4*t*t))/2 : (sqrt(1-4*(t-1)*(t-1))+1)/2",
+    "description": "Smooth circular motion with natural acceleration and deceleration",
+    "css_equivalent": "cubic-bezier(0.85, 0, 0.15, 1)",
+    "use_cases": [
+      "Full circular path motion",
+      "Smooth orbital camera transition",
+      "Dial or wheel rotation animation"
+    ],
+    "code": {
+      "javascript": "function easeInOutCirc(t) {\n  if (t < 0.5) return (1 - Math.sqrt(1 - 4 * t * t)) / 2;\n  return (Math.sqrt(1 - 4 * (t - 1) * (t - 1)) + 1) / 2;\n}",
+      "lua": "function easeInOutCirc(t)\n  if t < 0.5 then\n    return (1 - math.sqrt(1 - 4 * t * t)) / 2\n  else\n    return (math.sqrt(1 - 4 * (t - 1) * (t - 1)) + 1) / 2\n  end\nend",
+      "gdscript": "func ease_in_out_circ(t: float) -> float:\n\tif t < 0.5:\n\t\treturn (1.0 - sqrt(1.0 - 4.0 * t * t)) / 2.0\n\telse:\n\t\treturn (sqrt(1.0 - 4.0 * (t - 1.0) * (t - 1.0)) + 1.0) / 2.0",
+      "csharp": "public static float EaseInOutCirc(float t) {\n  if (t < 0.5f) return (1f - Mathf.Sqrt(1f - 4f * t * t)) / 2f;\n  return (Mathf.Sqrt(1f - 4f * (t - 1f) * (t - 1f)) + 1f) / 2f;\n}",
+      "python": "def ease_in_out_circ(t: float) -> float:\n    import math\n    if t < 0.5:\n        return (1 - math.sqrt(1 - 4 * t * t)) / 2\n    return (math.sqrt(1 - 4 * (t - 1) * (t - 1)) + 1) / 2"
+    }
+  },
+  "easeInBack": {
+    "name": "Ease In Back",
+    "category": "back",
+    "formula": "2.70158*t*t*t - 1.70158*t*t",
+    "description": "Pulls back slightly before accelerating forward creating anticipation",
+    "css_equivalent": "cubic-bezier(0.6, -0.28, 0.735, 0.045)",
+    "use_cases": [
+      "Character wind-up before jumping",
+      "UI element anticipating slide-in",
+      "Object recoiling before launching"
+    ],
+    "code": {
+      "javascript": "function easeInBack(t) {\n  const c = 1.70158;\n  return (c + 1) * t * t * t - c * t * t;\n}",
+      "lua": "function easeInBack(t)\n  local c = 1.70158\n  return (c + 1) * t * t * t - c * t * t\nend",
+      "gdscript": "func ease_in_back(t: float) -> float:\n\tvar c := 1.70158\n\treturn (c + 1.0) * t * t * t - c * t * t",
+      "csharp": "public static float EaseInBack(float t) {\n  const float c = 1.70158f;\n  return (c + 1f) * t * t * t - c * t * t;\n}",
+      "python": "def ease_in_back(t: float) -> float:\n    c = 1.70158\n    return (c + 1) * t * t * t - c * t * t"
+    }
+  },
+  "easeOutBack": {
+    "name": "Ease Out Back",
+    "category": "back",
+    "formula": "1 + 2.70158*(t-1)^3 + 1.70158*(t-1)^2",
+    "description": "Overshoots target then settles back creating bounce-like effect",
+    "css_equivalent": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+    "use_cases": [
+      "UI element overshooting then settling",
+      "Character landing with slight overshoot",
+      "Door swinging past closed position"
+    ],
+    "code": {
+      "javascript": "function easeOutBack(t) {\n  const c = 1.70158;\n  return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2);\n}",
+      "lua": "function easeOutBack(t)\n  local c = 1.70158\n  return 1 + (c + 1) * math.pow(t - 1, 3) + c * math.pow(t - 1, 2)\nend",
+      "gdscript": "func ease_out_back(t: float) -> float:\n\tvar c := 1.70158\n\treturn 1.0 + (c + 1.0) * pow(t - 1.0, 3.0) + c * pow(t - 1.0, 2.0)",
+      "csharp": "public static float EaseOutBack(float t) {\n  const float c = 1.70158f;\n  return 1f + (c + 1f) * Mathf.Pow(t - 1f, 3f) + c * Mathf.Pow(t - 1f, 2f);\n}",
+      "python": "def ease_out_back(t: float) -> float:\n    c = 1.70158\n    return 1 + (c + 1) * pow(t - 1, 3) + c * pow(t - 1, 2)"
+    }
+  },
+  "easeInOutBack": {
+    "name": "Ease In-Out Back",
+    "category": "back",
+    "formula": "t<0.5 ? 2*t*t*((2.594909*2+1)*2*t-2.594909) : 1+2*(t-1)*(t-1)*((2.594909*2+1)*2*(t-1)+2.594909)",
+    "description": "Pulls back at start and overshoots at end for dramatic motion",
+    "css_equivalent": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "use_cases": [
+      "Dramatic dialog box animation",
+      "Character double-take motion",
+      "Emphasis animation with wind-up and overshoot"
+    ],
+    "code": {
+      "javascript": "function easeInOutBack(t) {\n  const c1 = 1.70158;\n  const c2 = c1 * 1.525;\n  if (t < 0.5) {\n    return (Math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2;\n  }\n  return (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (2 * t - 2) + c2) + 2) / 2;\n}",
+      "lua": "function easeInOutBack(t)\n  local c1 = 1.70158\n  local c2 = c1 * 1.525\n  if t < 0.5 then\n    return (math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2\n  else\n    return (math.pow(2 * t - 2, 2) * ((c2 + 1) * (2 * t - 2) + c2) + 2) / 2\n  end\nend",
+      "gdscript": "func ease_in_out_back(t: float) -> float:\n\tvar c1 := 1.70158\n\tvar c2 := c1 * 1.525\n\tif t < 0.5:\n\t\treturn (pow(2.0 * t, 2.0) * ((c2 + 1.0) * 2.0 * t - c2)) / 2.0\n\telse:\n\t\treturn (pow(2.0 * t - 2.0, 2.0) * ((c2 + 1.0) * (2.0 * t - 2.0) + c2) + 2.0) / 2.0",
+      "csharp": "public static float EaseInOutBack(float t) {\n  const float c1 = 1.70158f;\n  const float c2 = c1 * 1.525f;\n  if (t < 0.5f) {\n    return (Mathf.Pow(2f * t, 2f) * ((c2 + 1f) * 2f * t - c2)) / 2f;\n  }\n  return (Mathf.Pow(2f * t - 2f, 2f) * ((c2 + 1f) * (2f * t - 2f) + c2) + 2f) / 2f;\n}",
+      "python": "def ease_in_out_back(t: float) -> float:\n    c1 = 1.70158\n    c2 = c1 * 1.525\n    if t < 0.5:\n        return (pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2\n    return (pow(2 * t - 2, 2) * ((c2 + 1) * (2 * t - 2) + c2) + 2) / 2"
+    }
+  },
+  "easeOutBounce": {
+    "name": "Ease Out Bounce",
+    "category": "bounce",
+    "formula": "piecewise bounce function",
+    "description": "Bounces multiple times at the end with decreasing amplitude",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Ball bouncing to a stop",
+      "Object dropping and settling",
+      "Playful UI element landing"
+    ],
+    "code": {
+      "javascript": "function easeOutBounce(t) {\n  const n1 = 7.5625;\n  const d1 = 2.75;\n  if (t < 1 / d1) {\n    return n1 * t * t;\n  } else if (t < 2 / d1) {\n    return n1 * (t -= 1.5 / d1) * t + 0.75;\n  } else if (t < 2.5 / d1) {\n    return n1 * (t -= 2.25 / d1) * t + 0.9375;\n  } else {\n    return n1 * (t -= 2.625 / d1) * t + 0.984375;\n  }\n}",
+      "lua": "function easeOutBounce(t)\n  local n1 = 7.5625\n  local d1 = 2.75\n  if t < 1 / d1 then\n    return n1 * t * t\n  elseif t < 2 / d1 then\n    t = t - 1.5 / d1\n    return n1 * t * t + 0.75\n  elseif t < 2.5 / d1 then\n    t = t - 2.25 / d1\n    return n1 * t * t + 0.9375\n  else\n    t = t - 2.625 / d1\n    return n1 * t * t + 0.984375\n  end\nend",
+      "gdscript": "func ease_out_bounce(t: float) -> float:\n\tvar n1 := 7.5625\n\tvar d1 := 2.75\n\tif t < 1.0 / d1:\n\t\treturn n1 * t * t\n\telif t < 2.0 / d1:\n\t\tt = t - 1.5 / d1\n\t\treturn n1 * t * t + 0.75\n\telif t < 2.5 / d1:\n\t\tt = t - 2.25 / d1\n\t\treturn n1 * t * t + 0.9375\n\telse:\n\t\tt = t - 2.625 / d1\n\t\treturn n1 * t * t + 0.984375",
+      "csharp": "public static float EaseOutBounce(float t) {\n  const float n1 = 7.5625f;\n  const float d1 = 2.75f;\n  if (t < 1f / d1) {\n    return n1 * t * t;\n  } else if (t < 2f / d1) {\n    return n1 * (t -= 1.5f / d1) * t + 0.75f;\n  } else if (t < 2.5f / d1) {\n    return n1 * (t -= 2.25f / d1) * t + 0.9375f;\n  } else {\n    return n1 * (t -= 2.625f / d1) * t + 0.984375f;\n  }\n}",
+      "python": "def ease_out_bounce(t: float) -> float:\n    n1 = 7.5625\n    d1 = 2.75\n    if t < 1 / d1:\n        return n1 * t * t\n    elif t < 2 / d1:\n        t -= 1.5 / d1\n        return n1 * t * t + 0.75\n    elif t < 2.5 / d1:\n        t -= 2.25 / d1\n        return n1 * t * t + 0.9375\n    else:\n        t -= 2.625 / d1\n        return n1 * t * t + 0.984375"
+    }
+  },
+  "easeInBounce": {
+    "name": "Ease In Bounce",
+    "category": "bounce",
+    "formula": "1 - easeOutBounce(1-t)",
+    "description": "Bounces multiple times at the start with increasing amplitude",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Object bouncing upward to launch",
+      "Reverse gravity effect starting",
+      "Playful anticipation before action"
+    ],
+    "code": {
+      "javascript": "function easeInBounce(t) { return 1 - easeOutBounce(1 - t); }",
+      "lua": "function easeInBounce(t) return 1 - easeOutBounce(1 - t) end",
+      "gdscript": "func ease_in_bounce(t: float) -> float:\n\treturn 1.0 - ease_out_bounce(1.0 - t)",
+      "csharp": "public static float EaseInBounce(float t) => 1f - EaseOutBounce(1f - t);",
+      "python": "def ease_in_bounce(t: float) -> float:\n    return 1 - ease_out_bounce(1 - t)"
+    }
+  },
+  "easeInOutBounce": {
+    "name": "Ease In-Out Bounce",
+    "category": "bounce",
+    "formula": "t<0.5 ? (1-easeOutBounce(1-2*t))/2 : (1+easeOutBounce(2*t-1))/2",
+    "description": "Bounces at both start and end for playful symmetric motion",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Playful dialog box animation",
+      "Rubber ball physics simulation",
+      "Fun character hop movement"
+    ],
+    "code": {
+      "javascript": "function easeInOutBounce(t) {\n  if (t < 0.5) return (1 - easeOutBounce(1 - 2 * t)) / 2;\n  return (1 + easeOutBounce(2 * t - 1)) / 2;\n}",
+      "lua": "function easeInOutBounce(t)\n  if t < 0.5 then\n    return (1 - easeOutBounce(1 - 2 * t)) / 2\n  else\n    return (1 + easeOutBounce(2 * t - 1)) / 2\n  end\nend",
+      "gdscript": "func ease_in_out_bounce(t: float) -> float:\n\tif t < 0.5:\n\t\treturn (1.0 - ease_out_bounce(1.0 - 2.0 * t)) / 2.0\n\telse:\n\t\treturn (1.0 + ease_out_bounce(2.0 * t - 1.0)) / 2.0",
+      "csharp": "public static float EaseInOutBounce(float t) {\n  if (t < 0.5f) return (1f - EaseOutBounce(1f - 2f * t)) / 2f;\n  return (1f + EaseOutBounce(2f * t - 1f)) / 2f;\n}",
+      "python": "def ease_in_out_bounce(t: float) -> float:\n    if t < 0.5:\n        return (1 - ease_out_bounce(1 - 2 * t)) / 2\n    return (1 + ease_out_bounce(2 * t - 1)) / 2"
+    }
+  },
+  "easeInElastic": {
+    "name": "Ease In Elastic",
+    "category": "elastic",
+    "formula": "sin(13*PI/2*t)*pow(2,10*(t-1))",
+    "description": "Oscillates with increasing amplitude like a spring being compressed",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Rubber band stretching",
+      "Spring-loaded trap winding up",
+      "Slingshot being pulled back"
+    ],
+    "code": {
+      "javascript": "function easeInElastic(t) {\n  if (t === 0) return 0;\n  if (t === 1) return 1;\n  return -Math.pow(2, 10 * t - 10) * Math.sin((t * 10 - 10.75) * (2 * Math.PI) / 3);\n}",
+      "lua": "function easeInElastic(t)\n  if t == 0 then return 0 end\n  if t == 1 then return 1 end\n  return -math.pow(2, 10 * t - 10) * math.sin((t * 10 - 10.75) * (2 * math.pi) / 3)\nend",
+      "gdscript": "func ease_in_elastic(t: float) -> float:\n\tif t == 0.0:\n\t\treturn 0.0\n\tif t == 1.0:\n\t\treturn 1.0\n\treturn -pow(2.0, 10.0 * t - 10.0) * sin((t * 10.0 - 10.75) * (2.0 * PI) / 3.0)",
+      "csharp": "public static float EaseInElastic(float t) {\n  if (t == 0f) return 0f;\n  if (t == 1f) return 1f;\n  return -Mathf.Pow(2f, 10f * t - 10f) * Mathf.Sin((t * 10f - 10.75f) * (2f * Mathf.PI) / 3f);\n}",
+      "python": "def ease_in_elastic(t: float) -> float:\n    import math\n    if t == 0:\n        return 0\n    if t == 1:\n        return 1\n    return -pow(2, 10 * t - 10) * math.sin((t * 10 - 10.75) * (2 * math.pi) / 3)"
+    }
+  },
+  "easeOutElastic": {
+    "name": "Ease Out Elastic",
+    "category": "elastic",
+    "formula": "sin(-13*PI/2*(t+1))*pow(2,-10*t)+1",
+    "description": "Oscillates with decreasing amplitude like a spring being released",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Rubber band snapping back",
+      "Spring-loaded object releasing",
+      "Bouncy UI element settling"
+    ],
+    "code": {
+      "javascript": "function easeOutElastic(t) {\n  if (t === 0) return 0;\n  if (t === 1) return 1;\n  return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1;\n}",
+      "lua": "function easeOutElastic(t)\n  if t == 0 then return 0 end\n  if t == 1 then return 1 end\n  return math.pow(2, -10 * t) * math.sin((t * 10 - 0.75) * (2 * math.pi) / 3) + 1\nend",
+      "gdscript": "func ease_out_elastic(t: float) -> float:\n\tif t == 0.0:\n\t\treturn 0.0\n\tif t == 1.0:\n\t\treturn 1.0\n\treturn pow(2.0, -10.0 * t) * sin((t * 10.0 - 0.75) * (2.0 * PI) / 3.0) + 1.0",
+      "csharp": "public static float EaseOutElastic(float t) {\n  if (t == 0f) return 0f;\n  if (t == 1f) return 1f;\n  return Mathf.Pow(2f, -10f * t) * Mathf.Sin((t * 10f - 0.75f) * (2f * Mathf.PI) / 3f) + 1f;\n}",
+      "python": "def ease_out_elastic(t: float) -> float:\n    import math\n    if t == 0:\n        return 0\n    if t == 1:\n        return 1\n    return pow(2, -10 * t) * math.sin((t * 10 - 0.75) * (2 * math.pi) / 3) + 1"
+    }
+  },
+  "easeInOutElastic": {
+    "name": "Ease In-Out Elastic",
+    "category": "elastic",
+    "formula": "conditional elastic oscillation",
+    "description": "Spring-like oscillation at both start and end with symmetric motion",
+    "css_equivalent": "none (custom)",
+    "use_cases": [
+      "Jelly-like character movement",
+      "Wobbling platform animation",
+      "Cartoon-style exaggerated motion"
+    ],
+    "code": {
+      "javascript": "function easeInOutElastic(t) {\n  if (t === 0) return 0;\n  if (t === 1) return 1;\n  const c5 = (2 * Math.PI) / 4.5;\n  if (t < 0.5) {\n    return -(Math.pow(2, 20 * t - 10) * Math.sin((20 * t - 11.125) * c5)) / 2;\n  }\n  return (Math.pow(2, -20 * t + 10) * Math.sin((20 * t - 11.125) * c5)) / 2 + 1;\n}",
+      "lua": "function easeInOutElastic(t)\n  if t == 0 then return 0 end\n  if t == 1 then return 1 end\n  local c5 = (2 * math.pi) / 4.5\n  if t < 0.5 then\n    return -(math.pow(2, 20 * t - 10) * math.sin((20 * t - 11.125) * c5)) / 2\n  else\n    return (math.pow(2, -20 * t + 10) * math.sin((20 * t - 11.125) * c5)) / 2 + 1\n  end\nend",
+      "gdscript": "func ease_in_out_elastic(t: float) -> float:\n\tif t == 0.0:\n\t\treturn 0.0\n\tif t == 1.0:\n\t\treturn 1.0\n\tvar c5 := (2.0 * PI) / 4.5\n\tif t < 0.5:\n\t\treturn -(pow(2.0, 20.0 * t - 10.0) * sin((20.0 * t - 11.125) * c5)) / 2.0\n\telse:\n\t\treturn (pow(2.0, -20.0 * t + 10.0) * sin((20.0 * t - 11.125) * c5)) / 2.0 + 1.0",
+      "csharp": "public static float EaseInOutElastic(float t) {\n  if (t == 0f) return 0f;\n  if (t == 1f) return 1f;\n  float c5 = (2f * Mathf.PI) / 4.5f;\n  if (t < 0.5f) {\n    return -(Mathf.Pow(2f, 20f * t - 10f) * Mathf.Sin((20f * t - 11.125f) * c5)) / 2f;\n  }\n  return (Mathf.Pow(2f, -20f * t + 10f) * Mathf.Sin((20f * t - 11.125f) * c5)) / 2f + 1f;\n}",
+      "python": "def ease_in_out_elastic(t: float) -> float:\n    import math\n    if t == 0:\n        return 0\n    if t == 1:\n        return 1\n    c5 = (2 * math.pi) / 4.5\n    if t < 0.5:\n        return -(pow(2, 20 * t - 10) * math.sin((20 * t - 11.125) * c5)) / 2\n    return (pow(2, -20 * t + 10) * math.sin((20 * t - 11.125) * c5)) / 2 + 1"
+    }
+  }
+}

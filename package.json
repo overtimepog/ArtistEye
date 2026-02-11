@@ -1,0 +1,14 @@
+{
+  "name": "artisteye",
+  "version": "2.0.0",
+  "description": "Game dev art plugin for Claude Code - spatial awareness, coordinate systems, and artistic tools",
+  "author": "Overtimepog",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Overtimepog/artisteye.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "love2d": {
+    "name": "LÖVE 2D",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels",
+    "rotation": { "unit": "radians", "direction": "clockwise" },
+    "z_order": "draw order (last drawn = on top)",
+    "common_pitfalls": [
+      "Y increases downward - subtract Y to move objects up",
+      "Rotation is in radians, not degrees - use math.rad() for conversion",
+      "Default origin for rotation/scaling is top-left corner, not center - use love.graphics.translate() or offset parameters",
+      "Screen coordinates start at (0,0) top-left, not center"
+    ],
+    "transform_example": "-- Move sprite to center and rotate\nlocal cx, cy = love.graphics.getWidth()/2, love.graphics.getHeight()/2\nlove.graphics.draw(sprite, cx, cy, math.rad(45), 1, 1, sprite:getWidth()/2, sprite:getHeight()/2)"
+  },
+  "godot2d": {
+    "name": "Godot 2D",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels",
+    "rotation": { "unit": "radians", "direction": "clockwise" },
+    "z_order": "z_index property + scene tree order",
+    "common_pitfalls": [
+      "Y increases downward - position.y -= value moves UP",
+      "rotation property is in radians internally, use rotation_degrees for degrees",
+      "Global vs local position: use global_position for world coords, position for parent-relative",
+      "Node2D.look_at() expects global coordinates"
+    ],
+    "transform_example": "# Move and rotate in Godot 2D\nposition = Vector2(100, 200)  # Y=200 is BELOW Y=100\nrotation_degrees = 45  # Clockwise rotation\nglobal_position = to_global(position)  # Convert local to world"
+  },
+  "godot3d": {
+    "name": "Godot 3D",
+    "origin": "center",
+    "y_direction": "up",
+    "units": "meters (default)",
+    "rotation": { "unit": "radians", "direction": "counter-clockwise (right-hand rule)" },
+    "z_order": "depth buffer (Z-forward is -Z)",
+    "common_pitfalls": [
+      "Forward direction is -Z (negative Z), not +Z",
+      "Y is UP in 3D but DOWN in 2D - don't mix conventions",
+      "Rotation uses right-hand rule - positive rotation is counter-clockwise when viewed from positive axis",
+      "Basis vectors: x=right, y=up, z=back (toward camera)"
+    ],
+    "transform_example": "# Godot 3D positioning\nposition = Vector3(1.0, 2.0, -3.0)  # Y=2 is UP, Z=-3 is FORWARD\nrotation_degrees = Vector3(0, 45, 0)  # 45° around Y axis\nvar forward = -global_transform.basis.z  # Forward direction"
+  },
+  "unity2d": {
+    "name": "Unity 2D",
+    "origin": "center (camera-dependent)",
+    "y_direction": "up",
+    "units": "units (1 unit = 100 pixels default)",
+    "rotation": { "unit": "degrees", "direction": "counter-clockwise" },
+    "z_order": "sorting layer + order in layer",
+    "common_pitfalls": [
+      "Y is UP - opposite of most 2D frameworks like Love2D/Godot2D/Pygame",
+      "1 unit ≠ 1 pixel - default Pixels Per Unit is 100",
+      "Z position affects rendering even in 2D - objects with lower Z render behind",
+      "transform.position is world space, transform.localPosition is parent-relative"
+    ],
+    "transform_example": "// Unity 2D positioning\ntransform.position = new Vector3(1f, 2f, 0f);  // Y=2 is UP\ntransform.Rotate(0, 0, 45f);  // 45° counter-clockwise around Z\nVector3 worldPos = transform.TransformPoint(localPos);"
+  },
+  "unity3d": {
+    "name": "Unity 3D",
+    "origin": "center",
+    "y_direction": "up",
+    "units": "meters (convention)",
+    "rotation": { "unit": "degrees", "direction": "left-handed (clockwise around Y from above)" },
+    "z_order": "depth buffer (Z-forward is +Z)",
+    "common_pitfalls": [
+      "Left-handed coordinate system - Z+ is forward (opposite of Godot/Blender)",
+      "Euler angles can gimbal lock - use Quaternion.Lerp for smooth rotation",
+      "transform.forward is +Z direction, transform.right is +X",
+      "Scale affects child objects - non-uniform scale causes skewing"
+    ],
+    "transform_example": "// Unity 3D positioning\ntransform.position = new Vector3(1f, 2f, 3f);  // Z=3 is FORWARD\ntransform.rotation = Quaternion.Euler(0, 45f, 0);  // 45° around Y\nVector3 forward = transform.forward;  // +Z direction"
+  },
+  "pygame": {
+    "name": "Pygame",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels",
+    "rotation": { "unit": "degrees", "direction": "counter-clockwise" },
+    "z_order": "blit order (last blit = on top)",
+    "common_pitfalls": [
+      "Y increases downward - (0,0) is top-left corner",
+      "pygame.transform.rotate() rotates counter-clockwise and changes surface size",
+      "Rotated surfaces get larger bounding rect - recalculate position after rotation",
+      "No built-in camera - must offset all positions manually for scrolling"
+    ],
+    "transform_example": "# Pygame positioning\nscreen.blit(sprite, (100, 200))  # Y=200 is BELOW Y=100\nrotated = pygame.transform.rotate(sprite, 45)  # 45° counter-clockwise\nnew_rect = rotated.get_rect(center=original_rect.center)  # Re-center after rotation"
+  },
+  "canvas": {
+    "name": "HTML5 Canvas",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels (CSS pixels)",
+    "rotation": { "unit": "radians", "direction": "clockwise" },
+    "z_order": "draw order (last drawn = on top)",
+    "common_pitfalls": [
+      "Y increases downward - standard screen coordinates",
+      "Rotation is clockwise in radians - opposite of math convention",
+      "Transforms are cumulative - use save()/restore() to isolate transforms",
+      "Canvas resolution vs CSS size - set both for crisp rendering on HiDPI"
+    ],
+    "transform_example": "// Canvas 2D positioning\nctx.save();\nctx.translate(100, 200);  // Move origin to (100, 200)\nctx.rotate(Math.PI / 4);  // 45° clockwise\nctx.drawImage(sprite, -w/2, -h/2);  // Draw centered on origin\nctx.restore();"
+  },
+  "threejs": {
+    "name": "Three.js",
+    "origin": "center",
+    "y_direction": "up",
+    "units": "arbitrary (convention: meters)",
+    "rotation": { "unit": "radians", "direction": "counter-clockwise (right-hand rule)" },
+    "z_order": "depth buffer (Z-forward is -Z by default)",
+    "common_pitfalls": [
+      "Right-handed system - Z comes toward camera, -Z is into screen",
+      "Default camera looks down -Z axis",
+      "Euler rotation order matters - default is XYZ, can cause gimbal lock",
+      "Object3D.lookAt() changes rotation - may flip objects unexpectedly"
+    ],
+    "transform_example": "// Three.js positioning\nmesh.position.set(1, 2, -3);  // Y=2 is UP, Z=-3 is into screen\nmesh.rotation.set(0, Math.PI/4, 0);  // 45° around Y axis\nconst forward = new THREE.Vector3(0, 0, -1).applyQuaternion(mesh.quaternion);"
+  },
+  "phaser": {
+    "name": "Phaser 3",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels",
+    "rotation": { "unit": "radians", "direction": "clockwise" },
+    "z_order": "depth property + add order",
+    "common_pitfalls": [
+      "Y increases downward - standard screen coordinates",
+      "Default origin for sprites is center (0.5, 0.5), not top-left",
+      "Rotation is in radians - use Phaser.Math.DegToRad() for conversion",
+      "Camera.main.scrollX/Y affects world position but not screen position"
+    ],
+    "transform_example": "// Phaser 3 positioning\nconst sprite = this.add.sprite(100, 200, 'player');  // Y=200 is lower\nsprite.setOrigin(0.5, 0.5);  // Center origin (default)\nsprite.setRotation(Phaser.Math.DegToRad(45));  // 45° clockwise\nsprite.setDepth(10);  // Higher depth = drawn on top"
+  },
+  "roblox": {
+    "name": "Roblox Studio",
+    "origin": "center (world origin)",
+    "y_direction": "up",
+    "units": "studs (1 stud ≈ 0.28m)",
+    "rotation": { "unit": "degrees", "direction": "varies by axis" },
+    "z_order": "depth buffer (3D)",
+    "common_pitfalls": [
+      "CFrame combines position and rotation - don't modify them separately",
+      "Y is UP - parts at Y=0 are at ground level",
+      "Rotation order matters in CFrame.Angles (uses radians internally despite degrees in properties)",
+      "GUI uses different coordinate system - UDim2 with Scale (0-1) and Offset (pixels)"
+    ],
+    "transform_example": "-- Roblox positioning\npart.CFrame = CFrame.new(10, 5, -3)  -- Y=5 is UP\npart.CFrame = CFrame.new(10, 5, -3) * CFrame.Angles(0, math.rad(45), 0)\n-- GUI positioning\nframe.Position = UDim2.new(0.5, 0, 0.5, 0)  -- Center of screen"
+  },
+  "blender": {
+    "name": "Blender",
+    "origin": "center (world origin)",
+    "y_direction": "up (Z-up)",
+    "units": "meters (default)",
+    "rotation": { "unit": "radians", "direction": "counter-clockwise (right-hand rule)" },
+    "z_order": "depth buffer (3D)",
+    "common_pitfalls": [
+      "Z is UP, not Y - different from most game engines",
+      "Forward direction is -Y (negative Y), not +Y or +Z",
+      "When exporting to engines, may need axis conversion (Z-up to Y-up)",
+      "Rotation modes: Euler XYZ (default) can gimbal lock - use Quaternion for animation"
+    ],
+    "transform_example": "# Blender Python\nimport bpy\nobj = bpy.context.active_object\nobj.location = (1.0, -3.0, 2.0)  # Z=2 is UP, Y=-3 is FORWARD\nobj.rotation_euler = (0, 0, 0.785)  # 45° around Z axis (radians)"
+  },
+  "defold": {
+    "name": "Defold",
+    "origin": "bottom-left",
+    "y_direction": "up",
+    "units": "pixels",
+    "rotation": { "unit": "degrees", "direction": "counter-clockwise" },
+    "z_order": "z property in game object",
+    "common_pitfalls": [
+      "Origin is BOTTOM-LEFT, not top-left - Y increases upward",
+      "Position (0,0) is bottom-left corner of the screen/collection",
+      "Rotation is counter-clockwise in degrees (Euler Z for 2D)",
+      "go.get_position() returns world position, not screen position"
+    ],
+    "transform_example": "-- Defold positioning\ngo.set_position(vmath.vector3(100, 200, 0))  -- Y=200 is ABOVE Y=100\ngo.set_rotation(vmath.quat_rotation_z(math.rad(45)))  -- 45° CCW\nlocal pos = go.get_position()  -- World position from bottom-left"
+  },
+  "raylib": {
+    "name": "Raylib",
+    "origin": "top-left (2D) / center (3D)",
+    "y_direction": "down (2D) / up (3D)",
+    "units": "pixels (2D) / arbitrary (3D)",
+    "rotation": { "unit": "degrees", "direction": "clockwise (2D)" },
+    "z_order": "draw order (2D) / depth buffer (3D)",
+    "common_pitfalls": [
+      "2D and 3D have DIFFERENT coordinate systems in the same engine",
+      "2D: Y-down, top-left origin. 3D: Y-up, right-handed",
+      "DrawTexturePro rotation is in degrees, clockwise",
+      "Camera2D target vs offset - target follows, offset is screen position"
+    ],
+    "transform_example": "// Raylib 2D\nDrawTexturePro(tex, src, dest, (Vector2){w/2, h/2}, 45.0f, WHITE);  // 45° CW\n// Raylib 3D\nDrawModel(model, (Vector3){1.0f, 2.0f, -3.0f}, 1.0f, WHITE);  // Y=2 is UP"
+  },
+  "pixijs": {
+    "name": "PixiJS",
+    "origin": "top-left",
+    "y_direction": "down",
+    "units": "pixels",
+    "rotation": { "unit": "radians", "direction": "clockwise" },
+    "z_order": "child order in container + zIndex",
+    "common_pitfalls": [
+      "Y increases downward - standard screen coordinates",
+      "Default anchor/pivot is top-left (0,0) - set to (0.5,0.5) for center rotation",
+      "Rotation is in radians, clockwise",
+      "Container transforms affect all children - use toGlobal()/toLocal() for conversions"
+    ],
+    "transform_example": "// PixiJS positioning\nconst sprite = PIXI.Sprite.from('player.png');\nsprite.anchor.set(0.5);  // Center anchor for proper rotation\nsprite.position.set(100, 200);  // Y=200 is below Y=100\nsprite.rotation = Math.PI / 4;  // 45° clockwise"
+  },
+  "unreal": {
+    "name": "Unreal Engine",
+    "origin": "center (world origin)",
+    "y_direction": "up (Z-up)",
+    "units": "centimeters",
+    "rotation": { "unit": "degrees", "direction": "left-handed" },
+    "z_order": "depth buffer (3D)",
+    "common_pitfalls": [
+      "Z is UP (like Blender), not Y - X=forward, Y=right, Z=up",
+      "Units are centimeters, not meters - 100 units = 1 meter",
+      "Left-handed coordinate system - cross products behave differently",
+      "FRotator uses (Pitch, Yaw, Roll) order, not (Roll, Pitch, Yaw)"
+    ],
+    "transform_example": "// Unreal C++\nFVector Location(100.f, 0.f, 200.f);  // X=forward, Z=200cm UP\nFRotator Rotation(0.f, 45.f, 0.f);  // Pitch=0, Yaw=45°, Roll=0\nSetActorLocationAndRotation(Location, Rotation.Quaternion());"
+  }
+}
